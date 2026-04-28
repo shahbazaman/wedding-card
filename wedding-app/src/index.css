@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: #f5f0e8; margin: 0; padding: 0; }
+
+/* ── Custom scrollbar — emerald ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #0d3b2e; }
+::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.4); border-radius: 2px; }
+
+/* ── Animations ── */
+@keyframes petalFall {
+  0%   { transform: translateY(-30px) rotate(0deg); opacity: 0; }
+  5%   { opacity: 0.4; }
+  90%  { opacity: 0.2; }
+  100% { transform: translateY(100vh) rotate(400deg); opacity: 0; }
+}
+@keyframes floatUp {
+  0%   { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+  10%  { opacity: 0.6; }
+  90%  { opacity: 0.4; }
+  100% { transform: translateY(-50px) rotate(720deg); opacity: 0; }
+}
+@keyframes blobFloat {
+  0%, 100% { transform: translate(0px, 0px) scale(1); }
+  33%       { transform: translate(20px, -20px) scale(1.05); }
+  66%       { transform: translate(-15px, 10px) scale(0.97); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201,168,76,0.35); }
+  50%       { box-shadow: 0 0 0 10px rgba(201,168,76,0); }
+}
+@keyframes bounce-y {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ── Rose & emerald petals ── */
+.petal {
+  position: fixed;
+  border-radius: 50% 0 50% 0;
+  animation: petalFall linear infinite;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: blobFloat ease-in-out infinite;
+  pointer-events: none;
+}
+
+.scroll-bounce { animation: bounce-y 2s infinite; }
+
+.shimmer-text {
+  background: linear-gradient(90deg, #c9a84c 0%, #f5dfa0 40%, #c9a84c 60%, #a07830 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
+}
+
+.gold-border-corner {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-color: rgba(13,59,46,0.4);
+  border-style: solid;
+}
