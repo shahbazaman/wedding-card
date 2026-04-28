@@ -1,8 +1,16 @@
+/// <reference types="vite/client" />
+
 import { createClient } from '@supabase/supabase-js'
 
-// ── Replace these with your Supabase project values ──────────────────────────
-// 1. Go to https://supabase.com → New project
-// 2. Settings → API → copy Project URL and anon key
+interface ImportMetaEnv {
+  readonly VITE_SUPABASE_URL?: string
+  readonly VITE_SUPABASE_ANON_KEY?: string
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv
+}
+
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || 'https://YOUR_PROJECT.supabase.co'
 const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY || 'YOUR_ANON_KEY'
 

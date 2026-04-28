@@ -852,9 +852,9 @@ const GoldDivider = ({ light = false }: { light?: boolean }) => (
   </div>
 )
 
-const PersonCard = ({ name, role, family }: { name: string; role: string; family: string }) => (
+const PersonCard = ({ name, role, family, style }: { name: string; role: string; family: string; style?: React.CSSProperties }) => (
   <div className="p-6 text-center relative"
-    style={{ border:'1px solid rgba(13,59,46,0.2)', background:'rgba(13,59,46,0.03)' }}>
+    style={{ border:'1px solid rgba(13,59,46,0.2)', background:'rgba(13,59,46,0.03)', ...style }}>
     <div style={{ position:'absolute', top:0, left:'50%', transform:'translateX(-50%)', width:36, height:2, background:'#1a5c44' }} />
     <div style={{ fontFamily:'"Great Vibes",cursive', fontSize:'clamp(26px,5vw,42px)', color:'#0d3b2e', marginBottom:8 }}>{name}</div>
     <div style={{ fontFamily:'Montserrat,sans-serif', fontSize:10, letterSpacing:2, color:'rgba(13,59,46,0.5)', textTransform:'uppercase' }}>{role}</div>
