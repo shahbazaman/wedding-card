@@ -1,4 +1,4 @@
-# 💍 Athif Aziz & Namra Shehsy — Wedding Invitation App
+Wedding Invitation App
 
 A full-stack personalized digital wedding invitation web app built with **React + Vite**, **Tailwind CSS**, **Framer Motion**, and **Supabase**.
 
